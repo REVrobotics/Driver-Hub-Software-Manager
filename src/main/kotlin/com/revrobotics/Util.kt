@@ -68,6 +68,27 @@ fun queueDownloadAndUpdate(packageName: String, downloadConnection: Connection<D
   }
 }
 
+// TODO(Noah): Implement
+/*val jobScheduler = MainApplication.instance.getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
+if (!jobScheduler.allPendingJobs.any { it.id == RevConstants.JOB_ID_CHECK_FOR_STALE_REPOS}) {
+  val intervalMs = DateUtils.WEEK_IN_MILLIS * 6 // Run this job once every 6 weeks
+  val jobInfo = JobInfo.Builder(RevConstants.JOB_ID_CHECK_FOR_STALE_REPOS, ComponentName(this, StaleRepoJobService::class.java))
+      .setPeriodic(intervalMs, JobInfo.getMinFlexMillis())
+      .build()
+  jobScheduler.schedule(jobInfo)
+}*/
+
+/*class StaleRepoJobService: JobService {
+  override fun onStartJob(params: JobParameters?): Boolean {
+
+  }
+
+  override fun onStopJob(params: JobParameters?): Boolean {
+
+  }
+
+}*/
+
 object LastUpdateOfAllReposTracker {
   private const val LAST_REPO_DOWNLOAD_TIMESTAMP_PREF_PREFIX = "lastUpdateCheckRepo"
   
